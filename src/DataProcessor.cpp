@@ -152,7 +152,7 @@ namespace Common{
 					_data.append_char(ba[i]);
 				}
 				else{
-					debug_out(("state: LCS_NONE: expect:\\033, but 0x%02X!\n", ba[i]));
+					EtwWrn("state: LCS_NONE: expect:\\033, but 0x%02X!", ba[i]);
 					r = false;
 					goto _exit;
 				}
@@ -164,7 +164,7 @@ namespace Common{
 					_data.append_char(ba[i]);
 				}
 				else{
-					debug_out(("state: LCS_ESC: expect: [, but 0x%02X\n", ba[i]));
+					EtwWrn("state: LCS_ESC: expect: [, but 0x%02X", ba[i]);
 					_state = LCS_NONE;
 					r = false;
 					goto _exit;
@@ -239,7 +239,7 @@ namespace Common{
 					_state = LCS_D;
 				}
 				else{
-					debug_out(("state: LCS_BRACKET: unexpected token: %02X\n", ba[i]));
+					EtwWrn("state: LCS_BRACKET: unexpected token: %02X", ba[i]);
 					_state = LCS_NONE;
 					r = false;
 					goto _exit;
@@ -291,7 +291,7 @@ namespace Common{
 						_data.append_char('m');
 					}
 					else{
-						debug_out(("state: LCS_VAL: unknown token: %02X\n", ba[i]));
+						EtwWrn("state: LCS_VAL: unknown token: %02X", ba[i]);
 						_state = LCS_NONE;
 						r = false;
 						goto _exit;
@@ -310,7 +310,7 @@ namespace Common{
 						_data.append_char('l');
 					}
 					else{
-						debug_out(("state: LCS_EQU+LCS_VAL: unexpected token: %02X\n", ba[i]));
+						EtwWrn("state: LCS_EQU+LCS_VAL: unexpected token: %02X", ba[i]);
 						_state = LCS_NONE;
 						r = false;
 						goto _exit;
@@ -343,14 +343,14 @@ namespace Common{
 						_data.append_char('m');
 					}
 					else{
-						debug_out(("state: LCS_SEMI+LCS_VAL: unexpected token: %02X\n", ba[i]));
+						EtwWrn("state: LCS_SEMI+LCS_VAL: unexpected token: %02X", ba[i]);
 						_state = LCS_NONE;
 						r = false;
 						goto _exit;
 					}
 				}
 				else{
-					debug_out(("state: LCS_VAL: unexpected token: %02X\n", ba[i]));
+					EtwWrn("state: LCS_VAL: unexpected token: %02X", ba[i]);
 					r = false;
 					goto _exit;
 				}
@@ -384,7 +384,7 @@ namespace Common{
 					_data.append_char(';');
 				}
 				else{
-					debug_out(("state: LCS_SEMI: unknown token: %02X\n", ba[i]));
+					EtwWrn("state: LCS_SEMI: unknown token: %02X", ba[i]);
 					r = false;
 					goto _exit;
 				}
@@ -408,7 +408,7 @@ namespace Common{
 					_data.append_char('l');
 				}
 				else{
-					debug_out(("state: LCS_EQU: unknown token %02X\n", ba[i]));
+					EtwWrn("state: LCS_EQU: unknown token %02X", ba[i]);
 					r = false;
 					_state = LCS_NONE;
 					goto _exit;
@@ -421,14 +421,14 @@ namespace Common{
 			case LCS_K:
 			case LCS_m:
 			case LCS_h:	case LCS_l:
-				debug_out(("parsing completed\n"));
+				EtwWrn("parsing completed");
 				r = false;
 				_state = LCS_NONE;
 				_data.append_char('\0');
 				_richedit->apply_linux_attributes((char*)_data.get_data());
 				goto _exit;
 			default:
-				debug_out(("unknown lcs token\n"));
+				EtwWrn("unknown lcs token");
 				r = false;
 				_state = LCS_NONE;
 				goto _exit;

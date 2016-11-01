@@ -1,12 +1,5 @@
 #pragma once
 
-#ifdef _DEBUG
-#define debug_out(x) printf##x
-#else
-#define debug_out(x) 
-#endif
-
-
 //////////////////////////////////////////////////////////////////////////
 // Smart Assert
 

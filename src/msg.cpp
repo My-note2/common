@@ -344,7 +344,7 @@ namespace Common {
 			return 0;
 		}
 		case kAutoSend:
-			debug_out(("自动发送中...\n"));
+			EtwLog("自动发送中...");
 			com_do_send(true);
 			return 0;
 		}

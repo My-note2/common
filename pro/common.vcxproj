@@ -55,7 +55,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CRT_SECURE_NO_WARNINGS;_WINDOWS;ETW_LOGGER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\src</AdditionalIncludeDirectories>
       <TreatSpecificWarningsAsErrors>4701;4706;%(TreatSpecificWarningsAsErrors)</TreatSpecificWarningsAsErrors>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>

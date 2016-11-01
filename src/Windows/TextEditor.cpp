@@ -189,7 +189,7 @@ namespace Window{
 			SendMessage(EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&cf);
 		}
 		else{
-			//debug_out(("unknown or unsupported Linux control format!\n"));
+			EtwWrn("unknown or unsupported Linux control format!");
 		}
 
 		return true;

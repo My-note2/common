@@ -27,6 +27,8 @@
 #include <devguid.h>
 #include <WinInet.h>
 
+#include "etwlogger.h"
+
 #include "Sdklayout/SdkLayout.h"
 #include "tinyxml2/tinyxml2.h"
 
